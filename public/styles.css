@@ -1,0 +1,103 @@
+body {
+  text-align: center;
+}
+
+.carousel {
+  width: 50%;
+  height: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+h1 {
+  color: blue;
+}
+
+.carousel__item {
+  position: absolute;
+  width: 300px;
+  height: 100px;
+}
+.carousel__item .checkmark {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: red;
+  border-radius: 100%;
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+.carousel__item .checkmark::after {
+  display: none;
+  content: " ";
+  position: absolute;
+}
+.carousel__item input[type=radio] {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  cursor: pointer;
+  opacity: 0;
+}
+.carousel__item input[type=radio]:checked ~ .carousel__item__main {
+  opacity: 1;
+  animation: slide-in 1000ms;
+}
+.carousel__item input[type=radio]:checked ~ .checkmark::after {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border-radius: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.carousel__item .check {
+  right: -30px;
+}
+.carousel__item .check--2 {
+  top: 20px;
+}
+.carousel__item .check--3 {
+  top: 40px;
+}
+.carousel__item__main {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  animation: slide-out 1000ms;
+}
+.carousel__item__main--blue {
+  background-color: blue;
+}
+.carousel__item__main--red {
+  background-color: red;
+}
+.carousel__item__main--yellow {
+  background-color: yellow;
+}
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slide-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
